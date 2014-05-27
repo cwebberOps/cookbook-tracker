@@ -25,7 +25,7 @@ module CookbookTracker
 
     before do
       github_organization_authenticate!(GITHUB_ORG)
-      github_user.api.auto_paginate = true
+      #github_user.api.auto_paginate = true
     end
 
 
