@@ -4,8 +4,7 @@ module CookbookTracker
 
       app.get '/repos' do
 
-        github_user.api.auto_paginate = true
-        @repos = github_user.api.org_repos('opscode-cookbooks', {:type => 'public'})
+        @repos = octokit_client.org_repos('opscode-cookbooks', {:type => 'public'})
         @repos.sort_by! { |repo| repo[:open_issues_count] }.reverse!
         erb :repos
       end
