@@ -7,26 +7,26 @@ module CookbookTracker
 
     register CookbookTracker::Repos
 
-    require 'octokit'
-    $github_user = Octokit::Client.new(:access_token => ENV['GITHUB_API_KEY'])
-    $github_user.auto_paginate = true
+    #require 'octokit'
+    #$github_user = Octokit::Client.new(:access_token => ENV['GITHUB_API_KEY'])
 
     enable :sessions
 
-    #set :github_options, {
-    #  :scopes => 'user',
-    #  :secret => ENV['GITHUB_CLIENT_SECRET'],
-    #  :client_id => ENV['GITHUB_CLIENT_ID'],
-    #}
+    set :github_options, {
+      :scopes => 'user',
+      :secret => ENV['GITHUB_CLIENT_SECRET'],
+      :client_id => ENV['GITHUB_CLIENT_ID'],
+    }
 
     GITHUB_TEAM_ID = ENV['GITHUB_TEAM_ID']
     GITHUB_ORG = ENV['GITHUB_ORG']
 
-#    register Sinatra::Auth::Github
+    register Sinatra::Auth::Github
 
-#    before do
-#      github_organization_authenticate!(GITHUB_ORG)
-#    end
+    before do
+      github_organization_authenticate!(GITHUB_ORG)
+      github_user.auto_paginate = true
+    end
 
 
     get '/' do

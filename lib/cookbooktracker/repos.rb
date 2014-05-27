@@ -4,7 +4,8 @@ module CookbookTracker
 
       app.get '/repos' do
 
-        @repos = $github_user.org_repos('opscode-cookbooks', {:type => 'public'})
+        @repos = github_user.org_repos('opscode-cookbooks', {:type => 'public'})
+        @repos.sort_by! { |repo| repo[:open_issues_count] }.reverse!
         erb :repos
       end
 
