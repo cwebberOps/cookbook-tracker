@@ -25,8 +25,6 @@ module CookbookTracker
 
     before do
       github_organization_authenticate!(GITHUB_ORG)
-      octokit_client = Octokit::Client.new(:login => github_user.login, :oauth_token => github_user.token)
-      octokit_client.auto_paginate = true
     end
 
 
