@@ -6,6 +6,7 @@ module CookbookTracker
 
 
     register CookbookTracker::Repos
+    register CookbookTracker::Cla
 
     #require 'octokit'
     #$github_user = Octokit::Client.new(:access_token => ENV['GITHUB_API_KEY'])
