@@ -3,6 +3,7 @@ module CookbookTracker
 
     set :views, settings.root + '/views'
     require 'cookbooktracker/repos'
+    require 'cookbooktracker/cla'
 
 
     register CookbookTracker::Repos
