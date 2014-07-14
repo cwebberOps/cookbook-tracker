@@ -7,9 +7,9 @@ module CookbookTracker
         cla_label = 'Signed CLA'
 
         #octokit_client = Octokit::Client.new(:access_token => github_user.token)
-        octokit_client = Octokit::Client.new(:login => github_user.login, :access_token => github_user.access_token)
+        #octokit_client = Octokit::Client.new(:login => github_user.login, :access_token => github_user.access_token)
 
-        return octokit_client.user
+        return github_user.user
 
         octokit_client.auto_paginate = true
         repos = octokit_client.org_repos('opscode-cookbooks', {:type => 'public'})
