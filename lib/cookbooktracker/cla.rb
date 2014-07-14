@@ -9,14 +9,12 @@ module CookbookTracker
         #octokit_client = Octokit::Client.new(:access_token => github_user.token)
         #octokit_client = Octokit::Client.new(:login => github_user.login, :access_token => github_user.access_token)
 
-        return github_user.class
-
-        github_user.auto_paginate = true
-        repos = github_user.org_repos('opscode-cookbooks', {:type => 'public'})
+        github_user.api.auto_paginate = true
+        repos = github_user.api..org_repos('opscode-cookbooks', {:type => 'public'})
         @cla = []
         repos.each do |r|
           if r.has_issues?
-            issues = github_user.list_issues(r.full_name, {:labels => cla_label})
+            issues = github_user.api.list_issues(r.full_name, {:labels => cla_label})
             @cla << {:repo => r.full_name, :count => issues.count}
           end
         end
