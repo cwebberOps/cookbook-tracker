@@ -9,7 +9,7 @@ module CookbookTracker
         #octokit_client = Octokit::Client.new(:access_token => github_user.token)
         #octokit_client = Octokit::Client.new(:login => github_user.login, :access_token => github_user.access_token)
 
-        return github_user.user
+        return github_user.login
 
         octokit_client.auto_paginate = true
         repos = octokit_client.org_repos('opscode-cookbooks', {:type => 'public'})
