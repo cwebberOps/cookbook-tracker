@@ -17,7 +17,7 @@ module CookbookTracker
             @cla << {:repo => r.full_name, :count => issues.count}
           end
         end
-        @repos.sort_by! { |r| r[:count] }.reverse!
+        @cla.sort_by! { |r| r[:count] }.reverse!
         erb :cla
       end
 
