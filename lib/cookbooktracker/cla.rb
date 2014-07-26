@@ -6,7 +6,6 @@ module CookbookTracker
 
         cla_label = 'Signed CLA'
 
-        #octokit_client = Octokit::Client.new(:access_token => github_user.token)
         octokit_client = github_user.api
 
         octokit_client.auto_paginate = true
@@ -18,6 +17,7 @@ module CookbookTracker
             @cla << {:repo => r.full_name, :count => issues.count}
           end
         end
+        @cla.sort_by! { |r| r[:count] }.reverse!
         erb :cla
       end
 
