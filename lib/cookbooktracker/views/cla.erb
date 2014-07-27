@@ -1,4 +1,4 @@
-<% content_for(:title) = "PRs with Signed CLAs" %>
+<% content_for(:title) {"PRs with Signed CLAs"} %>
 <ul>
   <% @cla.each do |repo| %>
     <li><a href="https://github.com/<%= repo[:repo] %>"><%= repo[:repo] %> - <%= repo[:count] %></a></li>
