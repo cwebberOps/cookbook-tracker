@@ -19,6 +19,7 @@ module CookbookTracker
         end
         @cla.sort_by! { |r| r[:count] }.reverse!
         @title = "PRs with Signed CLAs"
+        @github_login = github_user.login
         erb :cla
       end
 
