@@ -1,6 +1,33 @@
-<% content_for(:title) {"PRs with Signed CLAs"} %>
-<ul>
-  <% @cla.each do |repo| %>
-    <li><a href="https://github.com/<%= repo[:repo] %>"><%= repo[:repo] %> - <%= repo[:count] %></a></li>
-  <% end %>
-</ul>
+<% content_for(:title) {@title} %>
+<% content_for(:github_login) {@github_login} %>
+<h2><%= @title %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Table Heading?
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+          <tr>
+            <th>Repo</th>
+            <th>Issues</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% row_count = 0 %>
+          <% @cla.each do |repo| %>
+            <tr class="<%= row_count % 2 == 0 ? "even" : "odd" %>">
+              <td><a href="https://github.com/<%= repo[:repo] %>"><%= repo[:repo] %></a></td>
+              <td class="center"><%= repo[:count] %></td>
+            </tr>
+            <% row_count += 1 %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
