@@ -18,6 +18,7 @@ module CookbookTracker
           end
         end
         @cla.sort_by! { |r| r[:count] }.reverse!
+        @title = "PRs with Signed CLAs"
         erb :cla
       end
 
