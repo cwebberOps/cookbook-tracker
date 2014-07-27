@@ -1,13 +1,6 @@
-<html>
-  <head>
-    <title>A Better Title Goes Here</title>
-  </head>
-
-  <body>
-    <ul>
-      <% @cla.each do |repo| %>
-        <li><a href="https://github.com/<%= repo[:repo] %>"><%= repo[:repo] %> - <%= repo[:count] %></a></li>
-      <% end %>
-    </ul>
-  </body>
-</html>
+<% content_for(:title) = "PRs with Signed CLAs" %>
+<ul>
+  <% @cla.each do |repo| %>
+    <li><a href="https://github.com/<%= repo[:repo] %>"><%= repo[:repo] %> - <%= repo[:count] %></a></li>
+  <% end %>
+</ul>

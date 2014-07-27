@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require "rubygems"
 require "bundler/setup"
 require "sinatra_auth_github"
+require "sinatra/content_for"
 
 $LOAD_PATH << File.dirname(__FILE__) + '/lib'
 
