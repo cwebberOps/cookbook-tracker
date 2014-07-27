@@ -6,7 +6,7 @@ gem 'sinatra'
 gem 'sinatra_auth_github'
 gem 'thin'
 gem 'octokit'
-gem 'jira-ruby'
+gem 'sinatra-contrib'
 
 group :development do
   gem 'pry'

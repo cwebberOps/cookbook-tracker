@@ -1,6 +1,8 @@
 module CookbookTracker
   class App < Sinatra::Base
 
+    register Sinatra::Contrib
+
     set :views, settings.root + '/views'
     require 'cookbooktracker/repos'
     require 'cookbooktracker/cla'
